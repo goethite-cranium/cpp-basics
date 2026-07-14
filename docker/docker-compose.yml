@@ -1,0 +1,14 @@
+services:
+  cpp20:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cpp-lab
+    container_name: cpp-basics
+    stdin_open: true
+    tty: true
+    volumes:
+      - ..:/workspace
+
+
+# To run the service, just type ```docker compose run cpp20```
