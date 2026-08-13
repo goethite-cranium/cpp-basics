@@ -1,0 +1,7 @@
+# ninja log v5
+7	24	0	/workspace/build-debug/CMakeFiles/cmake.verify_globs	fc5e6a59d57d3fe3
+19	502	1785492643604091338	CMakeFiles/test.dir/src/unit_test/test.cpp.o	cc7a261673de33a7
+503	646	1785492643748042597	unit_test/test	951ae2922b69ccde
+4	21	0	/workspace/build-debug/CMakeFiles/cmake.verify_globs	fc5e6a59d57d3fe3
+23	522	1786448259431862008	CMakeFiles/test.dir/src/unit_test/test.cpp.o	cc7a261673de33a7
+523	662	1786448259569171547	unit_test/test	951ae2922b69ccde

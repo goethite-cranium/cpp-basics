@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # * gbd for debugging
 # * valgrind for detection of memory/thread issues
 # * clang-tidy for static analysis
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
     g++ \
@@ -22,9 +22,14 @@ RUN apt update && apt install -y \
     clang \
     clang-format \
     clang-tidy \
+    file \
+    pkg-config \
     curl \
     wget \
     vim \
+    ca-certificates \
+    unzip \
+    zip \
     && rm -rf /var/lib/apt/lists/*
 
 # All commands start here
