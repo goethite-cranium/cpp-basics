@@ -64,3 +64,51 @@ All types integral types (*short*, *int*, etc) are signed by default. Keyword ``
 **Range**: possible span of values a type can hold. For example, signed 8-bit has -128 to 127. (n-bit signed spans from -(2^(n-1)) to 2^(n-1)-1 ). 
 
 **Overflow**: number is cannot be represent with the bits of the type. It results on undefined behavior.
+It is undefined behaviour. In signed ints, normally the number is wrapped (if max int4 is 7, then 8 would become in -8), but as it is undefined what it might happen depends on the machine.
+
+**Division**: the fractional part is dropped.
+
+# Unsigned Integers
+Use keyword to define them:
+```
+unsigned short us;
+unsigned int ui;
+unsigned long ul;
+unsigned long long ull;
+```
+
+**Range**: from 0 to 2^n-1
+
+**Overflow**: it won't wrap. If overlowed, it is devided by one greater than the largest number of the datatype and only the reminder kept.
+Example:
+280 in 8bit uint (0-255) will be represented as the reminder of 280/256, thus 24.
+==Unsigned ints are discoraged due to their are more easily overflow in the bottom than the top, unlike signed which are eq likely, and because negative signed ints can be silently converted to unsigned expected parameters in functions producing the overflowing silently, which is hard to prevent.==
+
+Use uints when:
+* nums when dealing bit manipulation or well defined wrap around behavior is required (encryption and random gen)
+* Unavoidable cases (array indexing)
+* Processor/memory limited contexts
+
+
+# Fixed-width (cpp11+) integers and size_t
+Integer types are the only ones with min size guarantee, but they could be larger depending on the system.
+
+**Why we could needfixed-width ints?** 
+* If we assume an *int* is 32-bits, but the program runs in a machine where int is 16-bit, numbers can overflow. 
+* If we assume an *int* is 16-bits, but the program runs in a machine where int is 32-bit, 2 memory bytes are wasted. Specially important if the allocation is of millions of numbers that are persistant.
+
+Fixed-width integers are guarantee to have the same size in all systems:
+
+
+| Name | Fixed Size | Fixed Range | Notes |
+| ------ | ------ | ------ | ------ |
+| std::int8_t   | 1 byte signed | -128 to 127 | Treated like a signed char on many systems.  |
+| std::int8_t   | 1 byte unsigned | 0 to 255 | Treated like a usigned char on many systems.  |
+| std::int16_t  | 2 byte signed | -32,768 to 32,767 |  |
+| std::uint16_t | 2 byte unsigned | 0 to 65,535 |  |
+| std::int32_t  | 4 byte signed | 	-2,147,483,648 to 2,147,483,647 |  |
+| std::uint32_t | 4 byte unsigned | 0 to 4,294,967,295 |  |
+| std::int64_t  | 8 byte signed | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |  |
+| std::uint64_t | 8 byte unsigned | 0 to 18,446,744,073,709,551,615 |  |
+
+==**Warning**==: ```std::int8_t``` and ```std::uint8_t``` typically behave like chars (same as ```unsigned char``` and ```signed char```) in modern systems.
