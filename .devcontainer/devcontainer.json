@@ -1,14 +1,9 @@
 {
     "name": "cpp-basics",
-
     "dockerComposeFile": "../docker/docker-compose.yml",
-
     "service": "cpp20",
-
     "workspaceFolder": "/workspace",
-
     "shutdownAction": "stopCompose",
-
     "customizations": {
         "vscode": {
             "extensions": [
@@ -17,13 +12,17 @@
                 "ms-vscode.cmake-tools",
                 "llvm-vs-code-extensions.vscode-clangd"
             ],
-
             "settings": {
                 "cmake.configureOnOpen": true,
                 "cmake.useCMakePresets": "always",
                 "cmake.generator": "Ninja",
-                "editor.formatOnSave": true,
-                "C_Cpp.intelliSenseEngine": "default"
+                "editor.formatOnSave": false,
+                "C_Cpp.intelliSenseEngine": "default",
+                "[cpp]": {
+                    "editor.defaultFormatter": "ms-vscode.cpptools",
+                    "editor.formatOnSave": false
+                },
+                "C_Cpp.clang_format_format_on_save": false
             }
         }
     }
