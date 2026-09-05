@@ -71,7 +71,6 @@ Release:
 cmake --preset release
 cmake --build --preset build-release
 ```
-
 ---
 
 ## Executing debugging programs
@@ -118,3 +117,24 @@ F11 -> Step into
 Shift+F11 -> Step out
 
 We can use conditional breakpoints editing breakpoint
+
+
+## Building the playground as debug
+The previous applies to this. 
+The root cmake allows to build just the playground source files with option -BUILD_PLAYGROUN=ON
+By hand this is invoke with:
+```
+cmake -B build -G Ninja -DBUILD_PLAYGROUND=ON
+cmake --build build-playground
+```
+The configuration remains, so if build playground want to be deactivated, then cmake have to reconfigured:
+```
+cmake -B build -G Ninja -DBUILD_PLAYGROUND=OFF
+```
+
+The presets are also configure to run it:
+```
+cmake --preset playground
+cmake --build --preset build-playground 
+```
+

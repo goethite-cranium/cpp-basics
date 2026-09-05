@@ -3,3 +3,5 @@ build-debug/*
 !build-debug/.gitkeep
 build-release/*
 !build-release/.gitkeep
+build-playground/*
+!build-playground/.gitkeep

@@ -30,7 +30,7 @@ Integral are stored in memmory as *integral types*, but only *integer types* wil
 
 # Sizeof and object size
 * An object must occupy at least 1 byte (at least 8 bits)
-* Integral types *char*, *long*, *int*, *long* and *long long* have min size of 8, 16, 16, 32 and 64 respectivey.
+* Integral types *char*, *short*, *int*, *long* and *long long* have min size of 8, 16, 16, 32 and 64 bits respectivey.
 * *char* and *char8_t* are exactly 1 byte
 
 Assuming 1 byte is 8 bits, 32-bit or 64-bit architectures:
@@ -105,7 +105,7 @@ Fixed-width integers are guarantee to have the same size in all systems:
 | Name | Fixed Size | Fixed Range | Notes |
 | ------ | ------ | ------ | ------ |
 | std::int8_t   | 1 byte signed | -128 to 127 | Treated like a signed char on many systems.  |
-| std::int8_t   | 1 byte unsigned | 0 to 255 | Treated like a usigned char on many systems.  |
+| std::uint8_t   | 1 byte unsigned | 0 to 255 | Treated like a usigned char on many systems.  |
 | std::int16_t  | 2 byte signed | -32,768 to 32,767 |  |
 | std::uint16_t | 2 byte unsigned | 0 to 65,535 |  |
 | std::int32_t  | 4 byte signed | 	-2,147,483,648 to 2,147,483,647 |  |

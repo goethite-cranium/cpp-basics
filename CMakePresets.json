@@ -9,7 +9,8 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build-debug",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_PLAYGROUND": "OFF"
       }
     },
     {
@@ -19,7 +20,19 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build-release",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_PLAYGROUND": "OFF"
+      }
+    },
+    {
+      "name": "playground",
+      "displayName": "Release",
+      "description": "Playground configured as release using Ninja",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-playground",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_PLAYGROUND": "ON"
       }
     }
   ],
@@ -33,6 +46,11 @@
     {
       "name": "build-release",
       "configurePreset": "release",
+      "jobs": 4
+    },
+    {
+      "name": "build-playground",
+      "configurePreset": "playground",
       "jobs": 4
     }
   ]
