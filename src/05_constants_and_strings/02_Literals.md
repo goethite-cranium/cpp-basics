@@ -49,7 +49,7 @@ Strings are not a fundamental type in cpp, rather they have the **C-style string
 Two non obvious things about C style string literals:
 1. **They have an implicit suffix char of null terminator ('\0')**, eg., "hello" = 'h' 'l' 'l' 'o' '\0'. Thus the type of "hello" is const char[6], not const char [5]. It exists due to historical reasons.
 '\0' indicates end of the string. 
-2. ==Unlike most other literals, which are values, C-string style literals are const objects that are created at the start of the program and are guaranteed to exist for the entirety of the program.== Unlike this, ```std::string``` and ```std::string_view``` literal create temporary objects which must be used inmidiatly, as they are destroyed at the end of full expression oin which they are created
+2. ==Unlike most other literals, which are values, **C-string style literals are const objects that are created at the start of the program and are guaranteed to exist for the entirety of the program**.== Unlike this, ```std::string``` and ```std::string_view``` literal create temporary objects which must be used inmidiatly, as they are destroyed at the end of full expression oin which they are created
 
 **Magic number**
 Is a literal (usually number) with unclear meaning or may need to be changed later, eg., ```const int maxStudentsPerSchool { numClassrooms * 30 };``` or ```setMax(30);```.

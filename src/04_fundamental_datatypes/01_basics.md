@@ -162,16 +162,16 @@ Types can be
 6-9 significant digits.
 * *double*: double precision (normally 8 bytes)
 15-18 significant digits.
-* *long double*: extended precision (not convenetion, avoid it)
+* *long double*: extended precision (not conventional, avoid it)
 
-Alwais introduce decimal parts during floating point var creation:
+Always introduce decimal parts during floating point var creation:
 ```
 int a { 5 };
 float b { 5.0f };
 double c { 5.0 };
 ```
 
-The floating points have a gigantic range, BUT the greater the number the less the precision. Since we have the 6 digits guarantee for float, 5.0e5f will be precisely depicted, but 5.0e6f will lost the control on the last digit, in 5.07f the two last digits, and that can be applied to all numbers in terms of digits.
+The floating points have a gigantic range, BUT the greater the number the less the precision. Since we have the **6 digits** guarantee for float, 5.0e5f will be precisely depicted, but 5.0e6f will lost the control on the last digit, in 5.0e7f the two last digits, and that can be applied to all numbers in terms of digits.
 For decimal values, it is only limited by the exponent size, so we represent infinitesimal number without lost precision if the relevant digits are less than 7.
 
 Also since the number is represented as power of 2, then the decimal part can have lacky of precision. 0.5=1/2=2⁻1, or 0.25=1/4=2^-2, but 0.1=1/10 so it is periodic in base 2, then that number is not going to be represented precisely.

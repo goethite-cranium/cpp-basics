@@ -33,7 +33,7 @@ gravity = 9.8; // error
 
 **Notation**: as they act as normal variables, they follow the normal variable convention, though some programmers might named them upper-case (EARTH_GRAVITY) or with suffix k (kEarthGravity)
 
-**Const function parametrs**: function parameters can be casted to const, though this is discoraged since we do not care if they are const or not, since those are copies from the original values and will be destroyed after function execution. Also, adds small amount of unnecessary clutter to the function prototype.
+**Const function parametrs**: function parameters can be casted to const, though this is discoraged since we do not care if they are const or not, since those are copies from the original values and will be destroyed after function execution. Also, adds small amount of unnecessary clutter to the function prototype (Unless viewer, references, etc.)
 (eg. ```void exampleWithConstParameters(const int x);```)
 
 **Const return values**: The funtion output may also made const (eg. ```const int getValue()```). This is discoraged because:

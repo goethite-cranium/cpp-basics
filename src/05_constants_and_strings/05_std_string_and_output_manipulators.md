@@ -38,6 +38,7 @@ std::getline(std::cin >> std::ws, color);
 We can override default behavior of ```std::cout``` and ```std::cin``` with **output manipulators**.
 **Output manipulators are sticky**, this is, they remain set, except for ```std::stew``` and ```std::ws```.
 * ```std::ws``` from ```std::getline(std::cin >> std::ws, color);``` is an output manipulator that tells ```std::cin``` to ignore any leading whitespace before extraction. If ```std::ws``` wasn't have used, the line would have terminated after first whitespace. ```std::cin >> std::ws``` can be interpreted as output also the whitespaces from the input to the target.
+* ```std::cin >> std::boolalpha;``` or ```std::cout << std::boolalpha;```to allow the console to interpret true or false in command line as bools. Deactibated with ```std::noboolalpha```
 * ```std::setprecision()``` modifies the ```std::cout``` default behhavior of 6 digits as max precision for floating point types, eg., 
 ``` 
 std::cout << std::setprecision(2);

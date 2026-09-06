@@ -4,12 +4,12 @@ Is integral, thus is stored as an integer interpreted as ASCII character (from 0
 
 # Initialize chars
 1. Using character literals (preferred):
-```
+```cpp
 char ch2 { 'a' };
 ```
 
 2. Using integer (the char integer value)
-```
+```cpp
 char ch1 { 97 }; // char 'a' 
 ```
 

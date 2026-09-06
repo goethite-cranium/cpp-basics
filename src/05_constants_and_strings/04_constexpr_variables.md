@@ -12,7 +12,7 @@ const int a { 5 };          // clearly a constant expression since initializer
 const int d { getValue() }; // not obvious wheter d is usable in a 
                             // constant expression or not
 ```
-2. ==```const``` does not provide a way to infoorm the compiler that we require a variable that is usable in a constant expression== (and that it should halt compilation if it isn't).
+2. ==```const``` does not provide a way to inform the compiler that we require a variable that is usable in a constant expression== (and that it should halt compilation if it isn't).
 3. ==The use of ```const``` to create compile-time constant variables does not extend to non-integral variables.
 
 
@@ -52,7 +52,7 @@ For variables:
 * **```const``` means that the value of an object cannot be changed after initialization**. The value of the initializer may be known at compile or runtime. The const object can be evaluated at runtime.
 * **```constexpr``` means taht the object can be used in constant expression. thus the value of the initializer must be known at compile-time**. The constexpr object can be evaluated at runtime or compile-time.
 
-**Unlike ```const```, ```constexpr``` is not part of object's type, but also has const type**. eg.: ```cconstexpr int``` is type ```const int``` due to implicit const of constexpr.
+**Unlike ```const```, ```constexpr``` is not part of object's type, but also has const type**. eg.: ```constexpr int``` is type ```const int``` due to implicit const of constexpr.
 
 ---
 **Best practice**:
