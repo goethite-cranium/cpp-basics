@@ -107,7 +107,6 @@ Lower precedence
 ```
 
 ### Important rule
-
 Precedence and associativity determine **how an expression is grouped**, **not the order in which operands are evaluated**.
 For example:
 ```cpp
@@ -121,7 +120,7 @@ because `*` has higher precedence than `+`.
 
 The evaluation of operands is often not important, but scripts like this are wrong because we do not know when each function call is going to be
 evaluated, so it is unpredictible the result. For clang, the getValue() calls are going to be resolve right-left, while other compiler may do it 
-left-right. **OPERATORS, FUNCTION ARGUMENTS AND SUBESEXPRESSION MAY BE EALATED IN ANY ORDER**.
+left-right. **OPERATORS, FUNCTION ARGUMENTS AND SUBESEXPRESSION MAY BE EVALUATED IN ANY ORDER**.
 ```cpp
 #include <iostream>
 
@@ -146,10 +145,3 @@ int main()
     return 0;
 }
 ```
-
-### Behavioral featores of some operands
-* ```/``` division outputs different values depending on type operands: if any operand float -> output float. If both are int -> outpunt int
-eg., ```7.0 / 4 = 1.75```, ```7.0 / 4.0 = 1.75```, ```7 / 4.0 = 1.75```, ```7 / 4 = 1```, ```-7 / 4 = -1```.
-So, to make sure we choose the desired output, use ```static_cas<>``` on the operands whether is necessary.
-Division by ```/ 0``` is undefined behavior and likely crash program.
-Division by ```/ 0.0 ``` is implementation-defined (determined by compiler/architecture), many times resulting on Nan or Inf

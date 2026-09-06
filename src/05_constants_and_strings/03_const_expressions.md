@@ -55,6 +55,8 @@ They can contain:
 
 **REMINDER: const variables can be usable (and, thus, constant expressions) in constant expressions only if its initializer satisfies rules for constant expressions and thus it is known at runtime**.
 
+Note: ```std::abs``` was not made ```constexpr``` until cpp23
+
 
 ### When constant expressions are evaluated at compile-time
 **The compiler is only required to evaluate constant expressions at compile-time in contexts that require a constant experssion**.
