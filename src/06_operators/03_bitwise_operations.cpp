@@ -1,4 +1,5 @@
 #include <bitset>
+#include <cstdint>
 
 
 int main()
@@ -38,5 +39,42 @@ int main()
     std::cout << "Some bits are true: " << bits.any() << '\n';
     std::cout << "No bits are true: " << bits.none() << '\n';
 
+    // Bitwise operators
+    std::bitset<4> x { 0b1100};
+
+    std::cout << x << '\n';
+    std::cout << (x >> 1) << '\n';
+    std::cout << (x << 1) << '\n';
+
+	std::bitset<4> y { 0b0110 };
+
+	std::cout << y << 1 << '\n'; // print value of y (0110), then 1
+	std::cout << (y << 1) << '\n'; // print y left shifted by 1 (1100)
+
+    std::cout << ~y << '\n';
+
+    std::cout << (std::bitset<4>{ 0b0101 } | std::bitset<4>{ 0b0110}) << '\n';
+
+    std::cout << (std::bitset<4>{ 0b0001 } & std::bitset<4>{ 0b0011 } & std::bitset<4>{ 0b0111 }) << '\n';
+
+    // Mask operations
+    // Defined as symbolic constants
+    [[maybe_unused]] constexpr std::uint8_t mask0{ 0b0000'0001 }; // bit 0
+    [[maybe_unused]] constexpr std::uint8_t mask1{ 0b0000'0010 }; // bit 1
+    [[maybe_unused]] constexpr std::uint8_t mask2{ 0b0000'0100 }; // bit 2
+    [[maybe_unused]] constexpr std::uint8_t mask3{ 0b0000'1000 }; // bit 3
+    [[maybe_unused]] constexpr std::uint8_t mask4{ 0b0001'0000 }; // bit 4
+    [[maybe_unused]] constexpr std::uint8_t mask5{ 0b0010'0000 }; // bit 5
+    [[maybe_unused]] constexpr std::uint8_t mask6{ 0b0100'0000 }; // bit 6
+    [[maybe_unused]] constexpr std::uint8_t mask7{ 0b1000'0000 }; // bit 7
+
+    std::uint8_t flags{ 0b0000'0101 };
+    std::cout << "bit 0 is " << (static_cast<bool>(flags & mask0) ? "on\n" : "off\n");
+    std::cout << "bit 1 is " << (static_cast<bool>(flags & mask1) ? "on\n" : "off\n");
+
+    flags |= mask1; // turn on bit 1
+    std::cout << "bit 1 is " << (static_cast<bool>(flags & mask1) ? "on\n" : "off\n");
+
+    flags |= (mask4 | mask5); // turn bits 4 and 5 on at the same time
     return 0;
 }
